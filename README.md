@@ -7,6 +7,7 @@ Finance Ai é um SaaS de gestão financeira que utiliza inteligência artificial
 - **Next.js 14**: Framework React para desenvolvimento frontend.
 - **TypeScript**: Adiciona tipagem estática ao JavaScript, melhorando a segurança do código.
 - **Tailwind CSS**: Framework de estilos utilitário.
+- **ShadCN**: Conjunto de componentes UI prontos para uso, integrados ao Tailwind CSS, para facilitar a construção da interface do usuário.
 - **Prisma**: ORM para interagir com o banco de dados PostgreSQL.
 - **PostgreSQL**: Banco de dados relacional.
 - **ESLint**: Ferramenta de linting para manter a qualidade do código.
