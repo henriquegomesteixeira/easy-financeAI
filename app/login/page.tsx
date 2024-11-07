@@ -44,7 +44,7 @@ const LoginPage = async () => {
             alt="Faça login"
             fill
             priority
-            sizes="100vw"
+            sizes="50vw"
             className="rounded-2xl object-cover object-left-top"
           />
         </div>
