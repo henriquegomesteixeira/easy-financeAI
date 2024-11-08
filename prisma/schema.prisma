@@ -23,6 +23,7 @@ model Transaction {
   date          DateTime
   createdAt     DateTime                 @default(now())
   updatedAt     DateTime                 @updatedAt
+  userId        String
 }
 
 // O enum é um tipo de dado que permite definir um conjunto de valores possíveis, neste caso estamos definindo os tipos de transações possíveis

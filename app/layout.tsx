@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Mulish } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-import { dark, shadesOfPurple } from "@clerk/themes";
+import { dark } from "@clerk/themes";
 
 const mulish = Mulish({
   subsets: ["latin-ext"],
@@ -24,11 +24,6 @@ export default function RootLayout({
         <ClerkProvider
           appearance={{
             baseTheme: dark,
-            variables: { colorPrimary: "blue" },
-            signIn: {
-              baseTheme: shadesOfPurple,
-              variables: { colorPrimary: "green" },
-            },
           }}
         >
           {children}
