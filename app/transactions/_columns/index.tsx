@@ -10,11 +10,18 @@ import {
   TRANSACTION_PAYMENT_METHOD_LABELS,
 } from "@/app/_constants/transactions";
 import EditTransactionButton from "./edit-transaction-button";
+import TransactionIcon from "../_components/transaction-icon";
 
 export const TransactionColumns: ColumnDef<Transaction>[] = [
   {
     accessorKey: "name",
     header: "Nome",
+    cell: ({ row: { original: transaction } }) => (
+      <div className="flex items-center space-x-3">
+        <TransactionIcon category={transaction.category} />
+        <span className="whitespace-nowrap">{transaction.name}</span>
+      </div>
+    ),
   },
   {
     accessorKey: "type",
@@ -22,28 +29,6 @@ export const TransactionColumns: ColumnDef<Transaction>[] = [
     cell: ({ row: { original: transaction } }) => (
       <TransactionTypeBadge transaction={transaction} />
     ),
-  },
-  {
-    accessorKey: "category",
-    header: "Categoria",
-    cell: ({ row: { original: transaction } }) =>
-      TRANSACTION_CATEGORY_LABELS[transaction.category],
-  },
-  {
-    accessorKey: "paymentMethod",
-    header: "Método de pagamento",
-    cell: ({ row: { original: transaction } }) =>
-      TRANSACTION_PAYMENT_METHOD_LABELS[transaction.paymentMethod],
-  },
-  {
-    accessorKey: "date",
-    header: "Data",
-    cell: ({ row: { original: transaction } }) =>
-      new Date(transaction.date).toLocaleDateString("pt-BR", {
-        day: "2-digit",
-        month: "long",
-        year: "numeric",
-      }),
   },
   {
     accessorKey: "amount",
@@ -55,10 +40,38 @@ export const TransactionColumns: ColumnDef<Transaction>[] = [
       }).format(Number(transaction.amount)),
   },
   {
+    accessorKey: "category",
+    header: "Categoria",
+    cell: ({ row: { original: transaction } }) =>
+      TRANSACTION_CATEGORY_LABELS[transaction.category],
+  },
+  {
+    accessorKey: "paymentMethod",
+    header: "Método de pagamento",
+    cell: ({ row: { original: transaction } }) => (
+      <span className="whitespace-nowrap">
+        {TRANSACTION_PAYMENT_METHOD_LABELS[transaction.paymentMethod]}
+      </span>
+    ),
+  },
+  {
+    accessorKey: "date",
+    header: "Data",
+    cell: ({ row: { original: transaction } }) => (
+      <span className="whitespace-nowrap">
+        {new Date(transaction.date).toLocaleDateString("pt-BR", {
+          day: "2-digit",
+          month: "long",
+          year: "numeric",
+        })}
+      </span>
+    ),
+  },
+  {
     accessorKey: "actions",
     header: "",
     cell: ({ row: { original: transaction } }) => (
-      <div className="space-x-1">
+      <div className="flex flex-nowrap space-x-1 text-nowrap">
         <EditTransactionButton transaction={transaction} />
         <Button variant="ghost" size="icon" className="text-muted-foreground">
           <TrashIcon />
