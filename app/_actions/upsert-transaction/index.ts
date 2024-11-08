@@ -30,11 +30,11 @@ export const upsertTransaction = async (params: UpsertTransactionParams) => {
   }
 
   await db.transaction.upsert({
-    where: {
-      id: params.id,
-    },
     update: { ...params, userId },
     create: { ...params, userId },
+    where: {
+      id: params?.id ?? "",
+    },
   });
   // Revalida a página de transações, quando o usuário adicionar uma nova transação
   revalidatePath("/transactions");
