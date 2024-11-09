@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Mulish } from "next/font/google";
 import "./globals.css";
-import { ClerkProvider } from "@clerk/nextjs";
+import { ClerkLoaded, ClerkLoading, ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 
 const mulish = Mulish({
@@ -26,7 +26,13 @@ export default function RootLayout({
             baseTheme: dark,
           }}
         >
-          {children}
+          <ClerkLoading>
+            <div className="flex h-screen items-center justify-center">
+              <div className="h-10 w-10 animate-spin rounded-full border-4 border-gray-300 border-t-primary"></div>
+            </div>
+          </ClerkLoading>
+
+          <ClerkLoaded>{children}</ClerkLoaded>
         </ClerkProvider>
       </body>
     </html>
