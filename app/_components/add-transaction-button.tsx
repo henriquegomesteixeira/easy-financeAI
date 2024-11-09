@@ -14,7 +14,9 @@ const AddTransactionButton = () => {
         className="rounded-full font-bold lg:w-fit"
         onClick={() => setDiaLogIsOpen(true)}
       >
-        <span>Adicionar</span>
+        <span>
+          Adicionar <span className="hidden lg:inline">Transação</span>
+        </span>
         <ArrowDownUpIcon />
       </Button>
       <UpsertTransactionDialog
