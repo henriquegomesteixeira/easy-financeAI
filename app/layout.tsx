@@ -3,6 +3,7 @@ import { Mulish } from "next/font/google";
 import "./globals.css";
 import { ClerkLoaded, ClerkLoading, ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
+import Image from "next/image";
 
 const mulish = Mulish({
   subsets: ["latin-ext"],
@@ -28,7 +29,7 @@ export default function RootLayout({
         >
           <ClerkLoading>
             <div className="flex h-screen items-center justify-center">
-              <div className="h-10 w-10 animate-spin rounded-full border-4 border-gray-300 border-t-primary"></div>
+              <Image src="/logo.svg" alt="Logo" width={250} height={250} />
             </div>
           </ClerkLoading>
 
