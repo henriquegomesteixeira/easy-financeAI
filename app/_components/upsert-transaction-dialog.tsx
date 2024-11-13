@@ -114,7 +114,7 @@ const UpsertTransactionDialog = ({
       open={isOpen}
       onOpenChange={(open) => {
         setIsOpen(open);
-        if (open) {
+        if (!open) {
           form.reset();
         }
       }}
