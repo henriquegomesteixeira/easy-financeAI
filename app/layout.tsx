@@ -33,7 +33,11 @@ export default function RootLayout({
             </div>
           </ClerkLoading>
 
-          <ClerkLoaded>{children}</ClerkLoaded>
+          <ClerkLoaded>
+            <div className="flex h-full flex-col overflow-hidden">
+              {children}
+            </div>
+          </ClerkLoaded>
         </ClerkProvider>
       </body>
     </html>
