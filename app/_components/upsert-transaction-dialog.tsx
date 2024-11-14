@@ -151,7 +151,8 @@ const UpsertTransactionDialog = ({
                   <FormControl>
                     <MoneyInput
                       placeholder="Digite o valor..."
-                      onValueChange={({ floatValue }: { floatValue: number }) =>
+                      value={field.value}
+                      onValueChange={({ floatValue }) =>
                         field.onChange(floatValue)
                       }
                       onBlur={field.onBlur}
