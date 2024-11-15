@@ -28,14 +28,12 @@ const ListItem = React.forwardRef<
         <a
           ref={ref}
           className={cn(
-            "group block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            "group block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors focus:bg-accent focus:text-accent-foreground",
             className,
           )}
           {...props}
         >
-          <div className="text-sm font-medium leading-none group-hover:font-bold group-hover:text-primary">
-            {title}
-          </div>
+          <div className={cn("text-sm font-medium leading-none")}>{title}</div>
         </a>
       </NavigationMenuLink>
     </li>
@@ -57,9 +55,33 @@ const Navbar = () => {
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                <ListItem href="/" title="Dashboard" />
-                <ListItem href="/transactions" title="Transações" />
-                <ListItem href="/transactions" title="Assinatura" />
+                <ListItem
+                  href="/"
+                  title="Dashboard"
+                  className={
+                    pathname == "/"
+                      ? "border bg-accent font-bold text-primary"
+                      : "outline outline-0 outline-primary hover:outline-1"
+                  }
+                />
+                <ListItem
+                  href="/transactions"
+                  title="Transações"
+                  className={
+                    pathname == "/transactions"
+                      ? "border bg-accent font-bold text-primary"
+                      : "outline outline-0 outline-primary hover:outline-1"
+                  }
+                />
+                <ListItem
+                  href="/subscription"
+                  title="Assinatura"
+                  className={
+                    pathname == "/subscription"
+                      ? "border bg-accent font-bold text-primary"
+                      : "outline outline-0 outline-primary hover:outline-1"
+                  }
+                />
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
@@ -76,7 +98,7 @@ const Navbar = () => {
             className={
               pathname == "/"
                 ? "py-1 font-bold text-primary"
-                : "px-2 py-1 text-muted-foreground hover:bg-accent hover:text-white"
+                : "rounded-sm px-3 py-1 text-muted-foreground hover:bg-accent hover:text-white"
             }
           >
             Dashboard
