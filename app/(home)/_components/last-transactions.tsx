@@ -40,7 +40,7 @@ const LastTransactions = ({ lastTransactions }: LastTransactionsProps) => {
             className="flex items-center justify-between"
           >
             <div className="flex items-center gap-3">
-              <div className="rounded-lg bg-white bg-opacity-[3%] p-3 text-white">
+              <div className="rounded-lg bg-white bg-opacity-[3%] p-3 text-white sm:p-3">
                 <Image
                   src={`/${TRANSACTION_PAYMENT_METHOD_ICONS[transaction.paymentMethod]}`}
                   height={20}
@@ -50,10 +50,17 @@ const LastTransactions = ({ lastTransactions }: LastTransactionsProps) => {
               </div>
               <div>
                 <p className="text-sm font-bold">{transaction.name}</p>
-                <p className="text-sm text-muted-foreground">
+                <p className="hidden text-sm text-muted-foreground sm:block">
                   {new Date(transaction.date).toLocaleDateString("pt-BR", {
                     day: "2-digit",
                     month: "short",
+                    year: "numeric",
+                  })}
+                </p>
+                <p className="text-xs text-muted-foreground sm:hidden">
+                  {new Date(transaction.date).toLocaleDateString("pt-BR", {
+                    day: "2-digit",
+                    month: "2-digit",
                     year: "numeric",
                   })}
                 </p>

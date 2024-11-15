@@ -35,7 +35,7 @@ export default function RootLayout({
           </ClerkLoading>
 
           <ClerkLoaded>
-            <div className="flex h-full flex-col overflow-hidden">
+            <div className="flex h-full flex-col xl:overflow-hidden">
               {children}
             </div>
           </ClerkLoaded>

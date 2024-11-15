@@ -30,7 +30,9 @@ const AddTransactionButton = ({
               onClick={() => setDialogIsOpen(true)}
               disabled={!userCanAddTransaction}
             >
-              Adicionar transação
+              <span>
+                Adicionar <span className="hidden lg:inline">Transação</span>
+              </span>
               <ArrowDownUpIcon />
             </Button>
           </TooltipTrigger>

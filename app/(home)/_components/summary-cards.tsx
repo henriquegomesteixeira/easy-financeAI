@@ -37,7 +37,7 @@ const SummaryCards = async ({
         userCanAddTransaction={userCanAddTransaction}
       />
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-2 grid-rows-2 gap-6 xl:grid-cols-3 xl:grid-rows-1">
         <SummaryCard
           icon={
             <div className="rounded-md bg-zinc-800 p-2">
@@ -65,6 +65,7 @@ const SummaryCards = async ({
           }
           title="Despesas"
           amount={expensesTotal}
+          className="col-span-2 xl:col-span-1"
         />
       </div>
     </div>

@@ -60,11 +60,11 @@ const TransactionsPieChart = ({
     },
   ];
   return (
-    <Card className="flex flex-col p-6">
-      <CardContent className="flex-1 pb-0">
+    <Card className="flex h-full flex-col py-10">
+      <CardContent className="flex-1 p-0">
         <ChartContainer
           config={chartConfig}
-          className="mx-auto aspect-square max-h-[250px]"
+          className="mx-auto aspect-square max-h-[230px]"
         >
           <PieChart>
             <ChartTooltip
@@ -79,25 +79,25 @@ const TransactionsPieChart = ({
             />
           </PieChart>
         </ChartContainer>
-
-        <div className="space-y-3">
-          <PercentageItem
-            icon={<TrendingUpIcon size={16} className="text-primary" />}
-            title="Receita"
-            value={typesPercentage[TransactionType.DEPOSIT]}
-          />
-          <PercentageItem
-            icon={<TrendingDownIcon size={16} className="text-red-500" />}
-            title="Despesas"
-            value={typesPercentage[TransactionType.EXPENSE]}
-          />
-          <PercentageItem
-            icon={<PiggyBankIcon size={16} />}
-            title="Investido"
-            value={typesPercentage[TransactionType.INVESTMENT]}
-          />
-        </div>
       </CardContent>
+
+      <div className="space-y-3 px-4 sm:px-6">
+        <PercentageItem
+          icon={<TrendingUpIcon size={16} className="text-primary" />}
+          title="Receita"
+          value={typesPercentage[TransactionType.DEPOSIT]}
+        />
+        <PercentageItem
+          icon={<TrendingDownIcon size={16} className="text-red-500" />}
+          title="Despesas"
+          value={typesPercentage[TransactionType.EXPENSE]}
+        />
+        <PercentageItem
+          icon={<PiggyBankIcon size={16} />}
+          title="Investido"
+          value={typesPercentage[TransactionType.INVESTMENT]}
+        />
+      </div>
     </Card>
   );
 };

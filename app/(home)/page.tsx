@@ -37,10 +37,10 @@ const Home = async ({ searchParams: { month } }: HomeProps) => {
   return (
     <>
       <Navbar />
-      <div className="flex h-full flex-col space-y-6 overflow-hidden p-6">
+      <div className="flex flex-col space-y-6 p-6 xl:h-full xl:overflow-hidden">
         <div className="flex justify-between">
           <h1 className="text-2xl font-bold">Dashboard</h1>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-col items-end gap-3 sm:flex-row">
             <AiReportButton
               month={month}
               hasPremiumPlan={
@@ -50,14 +50,14 @@ const Home = async ({ searchParams: { month } }: HomeProps) => {
             <TimeSelect />
           </div>
         </div>
-        <div className="grid h-full grid-cols-[2fr,1fr] gap-6 overflow-hidden">
+        <div className="grid h-full gap-6 overflow-hidden xl:grid-cols-[2fr,1fr]">
           <div className="flex flex-col gap-6 overflow-hidden">
             <SummaryCards
               month={month}
               {...dashboard}
               userCanAddTransaction={userCanAddTransaction}
             />
-            <div className="grid h-full grid-cols-3 grid-rows-1 gap-6 overflow-hidden">
+            <div className="grid h-full grid-cols-1 gap-y-6 overflow-hidden md:grid-cols-3 md:grid-rows-1 md:gap-6">
               <TransactionsPieChart {...dashboard} />
               <ExpensesPerCategory
                 expensesPerCategory={dashboard.totalExpensePerCategory}
