@@ -60,7 +60,7 @@ const TransactionsPieChart = ({
     },
   ];
   return (
-    <Card className="flex h-full flex-col py-10">
+    <Card className="flex flex-col py-10 md:py-20 xl:py-0">
       <CardContent className="flex-1 p-0">
         <ChartContainer
           config={chartConfig}
@@ -79,9 +79,27 @@ const TransactionsPieChart = ({
             />
           </PieChart>
         </ChartContainer>
+
+        <div className="hidden space-y-3 px-4 sm:px-6 xl:block">
+          <PercentageItem
+            icon={<TrendingUpIcon size={16} className="text-primary" />}
+            title="Receita"
+            value={typesPercentage[TransactionType.DEPOSIT]}
+          />
+          <PercentageItem
+            icon={<TrendingDownIcon size={16} className="text-red-500" />}
+            title="Despesas"
+            value={typesPercentage[TransactionType.EXPENSE]}
+          />
+          <PercentageItem
+            icon={<PiggyBankIcon size={16} />}
+            title="Investido"
+            value={typesPercentage[TransactionType.INVESTMENT]}
+          />
+        </div>
       </CardContent>
 
-      <div className="space-y-3 px-4 sm:px-6">
+      <div className="space-y-3 px-4 sm:px-6 xl:hidden">
         <PercentageItem
           icon={<TrendingUpIcon size={16} className="text-primary" />}
           title="Receita"
