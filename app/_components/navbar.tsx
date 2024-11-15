@@ -75,8 +75,8 @@ const Navbar = () => {
             href="/"
             className={
               pathname == "/"
-                ? "font-bold text-primary"
-                : "text-muted-foreground"
+                ? "py-1 font-bold text-primary"
+                : "px-2 py-1 text-muted-foreground hover:bg-accent hover:text-white"
             }
           >
             Dashboard
@@ -85,8 +85,8 @@ const Navbar = () => {
             href="/transactions"
             className={
               pathname == "/transactions"
-                ? "font-bold text-primary"
-                : "text-muted-foreground"
+                ? "py-1 font-bold text-primary"
+                : "rounded-sm px-3 py-1 text-muted-foreground hover:bg-accent hover:text-white"
             }
           >
             Transações
@@ -95,8 +95,8 @@ const Navbar = () => {
             href="/subscription"
             className={
               pathname == "/subscription"
-                ? "font-bold text-primary"
-                : "text-muted-foreground"
+                ? "py-1 font-bold text-primary"
+                : "rounded-sm px-2 py-1 text-muted-foreground hover:bg-accent hover:text-white"
             }
           >
             Assinatura
