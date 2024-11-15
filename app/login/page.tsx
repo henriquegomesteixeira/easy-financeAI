@@ -19,15 +19,15 @@ const LoginPage = async () => {
       <div className="mx-auto flex h-full max-w-[550px] flex-col justify-center p-8">
         <Image
           src="/logo.svg"
-          alt="Finance AI"
+          alt="Easy FinanceAI"
           width={190}
           height={39}
           className="mb-5"
         />
         <h1 className="font mb-3 text-4xl font-bold">Bem-vindo</h1>
         <p className="mb-8 text-muted-foreground">
-          A Finance AI é uma plataforma de gestão financeira que utiliza IA para
-          monitorar suas movimentações, e oferecer insights personalizados,
+          A Easy FinanceAI é uma plataforma de gestão financeira que utiliza IA
+          para monitorar suas movimentações, e oferecer insights personalizados,
           facilitando o controle do seu orçamento.
         </p>
         <SignInButton>
@@ -49,10 +49,10 @@ const LoginPage = async () => {
           />
         </div>
         <div className="flex flex-col justify-center rounded-xl">
-          <Image src="/logo.svg" alt="Finance AI" width={173} height={39} />
+          <Image src="/logo.svg" alt="Easy FinanceAI" width={173} height={39} />
           <p>
-            Gerencie suas finanças pessoais de uma forma simples com a
-            finance.ai, e o melhor, totalmente de graça!
+            Gerencie suas finanças pessoais de uma forma simples com a Easy
+            FinanceAI, e o melhor, totalmente de graça!
           </p>
         </div>
       </div>

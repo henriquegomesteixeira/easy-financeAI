@@ -1,5 +1,5 @@
-# Finance Ai
-Finance Ai é um SaaS de gestão financeira que utiliza inteligência artificial para auxiliar no gerenciamento de finanças pessoais e corporativas. O projeto é desenvolvido com Next.js 14, TypeScript e Tailwind CSS.
+# Easy FinanceAi
+Easy FinanceAi é um SaaS de gestão financeira que utiliza inteligência artificial para auxiliar no gerenciamento de finanças pessoais e corporativas. O projeto é desenvolvido com Next.js 14, TypeScript e Tailwind CSS.
 
 ## Tecnologias Principais
 - **Next.js 14**: Framework React para desenvolvimento frontend.

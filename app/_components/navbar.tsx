@@ -67,7 +67,7 @@ const Navbar = () => {
       </NavigationMenu>
 
       <div className="flex items-center gap-10">
-        <Image src="/logo.svg" alt="Finance AI" width={173} height={39} />
+        <Image src="/logo.svg" alt="Easy FinanceAI" width={173} height={39} />
 
         {/* Menu para Desktop */}
         <div className="hidden gap-10 lg:flex">
