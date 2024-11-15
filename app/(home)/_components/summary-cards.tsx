@@ -50,7 +50,7 @@ const SummaryCards = async ({
         />
         <SummaryCard
           icon={
-            <div className="rounded-md bg-green-800 bg-opacity-20 p-2">
+            <div className="rounded-md bg-green-700 bg-opacity-20 p-2">
               <TrendingUpIcon size={16} className="text-primary" />
             </div>
           }

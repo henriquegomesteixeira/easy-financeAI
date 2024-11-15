@@ -20,9 +20,9 @@ const LoginPage = async () => {
         <Image
           src="/logo.svg"
           alt="Finance AI"
-          width={173}
+          width={190}
           height={39}
-          className="mb-8"
+          className="mb-5"
         />
         <h1 className="font mb-3 text-4xl font-bold">Bem-vindo</h1>
         <p className="mb-8 text-muted-foreground">

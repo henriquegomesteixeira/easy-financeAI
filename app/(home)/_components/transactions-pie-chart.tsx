@@ -21,7 +21,7 @@ const chartConfig = {
   },
   [TransactionType.DEPOSIT]: {
     label: "Receita",
-    color: "#55B02E",
+    color: "#15A149",
   },
   [TransactionType.EXPENSE]: {
     label: "Despesas",
@@ -46,7 +46,7 @@ const TransactionsPieChart = ({
     {
       type: TransactionType.DEPOSIT,
       amount: depositsTotal,
-      fill: "#55B02E",
+      fill: "#15A149",
     },
     {
       type: TransactionType.EXPENSE,
