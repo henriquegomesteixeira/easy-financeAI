@@ -15,6 +15,7 @@ import {
   TableHeader,
   TableRow,
 } from "./table";
+import AlertHasData from "./alert-has-data";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -69,7 +70,7 @@ export function DataTable<TData, TValue>({
           ) : (
             <TableRow>
               <TableCell colSpan={columns.length} className="h-24 text-center">
-                No results.
+                <AlertHasData />
               </TableCell>
             </TableRow>
           )}

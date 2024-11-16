@@ -42,23 +42,35 @@ const TransactionsPieChart = ({
   expensesTotal,
   typesPercentage,
 }: TransactionsPieChartProps) => {
-  const chartData = [
-    {
-      type: TransactionType.DEPOSIT,
-      amount: depositsTotal,
-      fill: "#15A149",
-    },
-    {
-      type: TransactionType.EXPENSE,
-      amount: expensesTotal,
-      fill: "#E93030",
-    },
-    {
-      type: TransactionType.INVESTMENT,
-      amount: investmentsTotal,
-      fill: "#FFFFFF",
-    },
-  ];
+  const isEmptyData =
+    depositsTotal === 0 && investmentsTotal === 0 && expensesTotal === 0;
+
+  const chartData = isEmptyData
+    ? [
+        {
+          type: "Sem transações",
+          amount: 1,
+          fill: "#4B5563",
+        },
+      ]
+    : [
+        {
+          type: TransactionType.DEPOSIT,
+          amount: depositsTotal,
+          fill: "#15A149",
+        },
+        {
+          type: TransactionType.EXPENSE,
+          amount: expensesTotal,
+          fill: "#E93030",
+        },
+        {
+          type: TransactionType.INVESTMENT,
+          amount: investmentsTotal,
+          fill: "#FFFFFF",
+        },
+      ];
+
   return (
     <Card className="flex flex-col py-10 md:py-20 xl:py-0">
       <CardContent className="flex-1 p-0">
@@ -81,40 +93,54 @@ const TransactionsPieChart = ({
         </ChartContainer>
 
         <div className="hidden space-y-3 px-4 sm:px-6 xl:block">
-          <PercentageItem
-            icon={<TrendingUpIcon size={16} className="text-primary" />}
-            title="Receita"
-            value={typesPercentage[TransactionType.DEPOSIT]}
-          />
-          <PercentageItem
-            icon={<TrendingDownIcon size={16} className="text-red-500" />}
-            title="Despesas"
-            value={typesPercentage[TransactionType.EXPENSE]}
-          />
-          <PercentageItem
-            icon={<PiggyBankIcon size={16} />}
-            title="Investido"
-            value={typesPercentage[TransactionType.INVESTMENT]}
-          />
+          {!isEmptyData ? (
+            <>
+              <PercentageItem
+                icon={<TrendingUpIcon size={16} className="text-primary" />}
+                title="Receita"
+                value={typesPercentage[TransactionType.DEPOSIT]}
+              />
+              <PercentageItem
+                icon={<TrendingDownIcon size={16} className="text-red-500" />}
+                title="Despesas"
+                value={typesPercentage[TransactionType.EXPENSE]}
+              />
+              <PercentageItem
+                icon={<PiggyBankIcon size={16} />}
+                title="Investido"
+                value={typesPercentage[TransactionType.INVESTMENT]}
+              />
+            </>
+          ) : (
+            <p className="pt-10 text-center text-gray-600">
+              Sem dados disponíveis
+            </p>
+          )}
         </div>
       </CardContent>
 
       <div className="space-y-3 px-4 sm:px-6 xl:hidden">
-        <PercentageItem
-          icon={<TrendingUpIcon size={16} className="text-primary" />}
-          title="Receita"
-          value={typesPercentage[TransactionType.DEPOSIT]}
-        />
-        <PercentageItem
-          icon={<TrendingDownIcon size={16} className="text-red-500" />}
-          title="Despesas"
-          value={typesPercentage[TransactionType.EXPENSE]}
-        />
-        <PercentageItem
-          icon={<PiggyBankIcon size={16} />}
-          title="Investido"
-          value={typesPercentage[TransactionType.INVESTMENT]}
-        />
+        {!isEmptyData ? (
+          <>
+            <PercentageItem
+              icon={<TrendingUpIcon size={16} className="text-primary" />}
+              title="Receita"
+              value={typesPercentage[TransactionType.DEPOSIT]}
+            />
+            <PercentageItem
+              icon={<TrendingDownIcon size={16} className="text-red-500" />}
+              title="Despesas"
+              value={typesPercentage[TransactionType.EXPENSE]}
+            />
+            <PercentageItem
+              icon={<PiggyBankIcon size={16} />}
+              title="Investido"
+              value={typesPercentage[TransactionType.INVESTMENT]}
+            />
+          </>
+        ) : (
+          <p className="text-center text-gray-600">Sem dados disponíveis</p>
+        )}
       </div>
     </Card>
   );
