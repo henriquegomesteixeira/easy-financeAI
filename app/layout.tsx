@@ -30,7 +30,7 @@ export default function RootLayout({
           }}
         >
           <ClerkLoading>
-            <div className="flex h-screen items-center justify-center">
+            <div className="flex h-screen animate-pulse items-center justify-center">
               <Image src="/logo.svg" alt="Logo" width={300} height={300} />
             </div>
           </ClerkLoading>
