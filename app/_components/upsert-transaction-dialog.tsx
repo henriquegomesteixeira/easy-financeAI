@@ -8,9 +8,9 @@ import {
   DialogHeader,
   DialogTitle,
 } from "./ui/dialog";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod"; // Resolvedor de validação com Zod
+import { useForm } from "react-hook-form"; // Gerenciamento de estado do formulário
+import { z } from "zod"; // Biblioteca para validação de esquemas
 import {
   TransactionCategory,
   TransactionPaymentMethod,
@@ -40,6 +40,7 @@ import {
 import { DatePicker } from "./ui/date-picker";
 import { upsertTransaction } from "../_actions/upsert-transaction";
 import { MoneyInput } from "./money-input";
+import { useEffect } from "react";
 
 type FormSchema = z.infer<typeof formSchema>;
 
@@ -50,7 +51,7 @@ interface UpsertTransactionDialogProps {
   setIsOpen: (isOpen: boolean) => void;
 }
 
-// Esquema responsável por validar os campos do formulário e garantir que cada campo obrigatório tenha um valor válido.
+// Esquema de validação do formulário utilizando Zod, garantindo que todos os campos atendam aos requisitos.
 const formSchema = z.object({
   name: z.string().trim().min(1, {
     message: "O nome é obrigatório",
@@ -76,6 +77,7 @@ const formSchema = z.object({
   }),
 });
 
+// Componente de diálogo para criar ou atualizar transações.
 const UpsertTransactionDialog = ({
   isOpen,
   setIsOpen,
@@ -84,7 +86,7 @@ const UpsertTransactionDialog = ({
 }: UpsertTransactionDialogProps) => {
   // Define valores padrão para os campos da transação.
   const form = useForm<FormSchema>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(formSchema), // Resolver de validação utilizando Zod
     defaultValues: defaultValues ?? {
       amount: 0,
       category: TransactionCategory.OTHER,
@@ -95,27 +97,37 @@ const UpsertTransactionDialog = ({
     },
   });
 
-  // Função responsável por enviar os dados do formulário para adicionar uma nova transação.
+  // Atualiza os valores do formulário quando o diálogo é aberto e há valores padrões fornecidos.
+  useEffect(() => {
+    if (isOpen && defaultValues) {
+      form.reset({
+        ...defaultValues,
+        amount: Number(defaultValues.amount),
+      });
+    }
+  }, [isOpen, defaultValues, form]);
+
+  // Função para lidar com o envio do formulário e realizar a operação de criação ou atualização da transação.
   const onSubmit = async (data: FormSchema) => {
     try {
-      await upsertTransaction({ ...data, id: transactionId });
-      setIsOpen(false);
-      form.reset();
+      await upsertTransaction({ ...data, id: transactionId }); // Realiza a operação de inserção/atualização
+      setIsOpen(false); // Fecha o diálogo após sucesso
+      form.reset(); // Reseta o formulário após sucesso
     } catch (error) {
       console.error(error);
     }
   };
 
+  // Verifica se o formulário está no modo de atualização ou criação.
   const isUpdate = Boolean(transactionId);
 
-  // Padrão composition pattern, é um padrão de design de software que visa a reutilização de código, onde um objeto contém outro objeto.
   return (
     <Dialog
       open={isOpen}
       onOpenChange={(open) => {
-        setIsOpen(open);
+        setIsOpen(open); // Controla a abertura e fechamento do diálogo
         if (!open) {
-          form.reset();
+          form.reset(); // Reseta o formulário quando o diálogo é fechado
         }
       }}
     >
@@ -128,6 +140,7 @@ const UpsertTransactionDialog = ({
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            {/* Campo para nome da transação */}
             <FormField
               control={form.control}
               name="name"
@@ -142,6 +155,7 @@ const UpsertTransactionDialog = ({
               )}
             />
 
+            {/* Campo para valor da transação */}
             <FormField
               control={form.control}
               name="amount"
@@ -151,9 +165,9 @@ const UpsertTransactionDialog = ({
                   <FormControl>
                     <MoneyInput
                       placeholder="Digite o valor..."
-                      value={field.value}
+                      value={field.value ?? 0}
                       onValueChange={({ floatValue }) =>
-                        field.onChange(floatValue)
+                        field.onChange(floatValue ?? 0)
                       }
                       onBlur={field.onBlur}
                       disabled={field.disabled}
@@ -164,6 +178,7 @@ const UpsertTransactionDialog = ({
               )}
             />
 
+            {/* Campo para tipo de transação */}
             <FormField
               control={form.control}
               name="type"
@@ -192,6 +207,7 @@ const UpsertTransactionDialog = ({
               )}
             />
 
+            {/* Campo para categoria da transação */}
             <FormField
               control={form.control}
               name="category"
@@ -220,6 +236,7 @@ const UpsertTransactionDialog = ({
               )}
             />
 
+            {/* Campo para método de pagamento */}
             <FormField
               control={form.control}
               name="paymentMethod"
@@ -248,6 +265,7 @@ const UpsertTransactionDialog = ({
               )}
             />
 
+            {/* Campo para data da transação */}
             <FormField
               control={form.control}
               name="date"
@@ -260,6 +278,7 @@ const UpsertTransactionDialog = ({
               )}
             />
 
+            {/* Botões de ação do diálogo */}
             <DialogFooter>
               <DialogClose asChild>
                 <Button type="button" variant="outline">

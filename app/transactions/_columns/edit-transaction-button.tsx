@@ -15,18 +15,24 @@ const EditTransactionButton = ({ transaction }: EditTransactionButtonProps) => {
 
   return (
     <>
+      {/* Botão para editar transação */}
       <Button
         variant="ghost"
         size="icon"
         className="text-muted-foreground"
-        onClick={() => setDiaLogIsOpen(true)}
+        onClick={() => setDiaLogIsOpen(true)} // Abre o diálogo
       >
         <PencilIcon />
       </Button>
+
       <UpsertTransactionDialog
         isOpen={dialogIsOpen}
         setIsOpen={setDiaLogIsOpen}
-        defaultValues={{ ...transaction, amount: Number(transaction.amount) }}
+        defaultValues={{
+          ...transaction,
+          amount: Number(transaction.amount),
+          date: new Date(transaction.date),
+        }}
         transactionId={transaction.id}
       />
     </>
