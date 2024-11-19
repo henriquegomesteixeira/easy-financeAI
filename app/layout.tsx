@@ -6,6 +6,7 @@ import { dark } from "@clerk/themes";
 import Image from "next/image";
 import { Toaster } from "sonner";
 
+// Importa a fonte Mulish
 const mulish = Mulish({
   subsets: ["latin-ext"],
 });
@@ -29,18 +30,22 @@ export default function RootLayout({
             baseTheme: dark,
           }}
         >
+          {/* Exibe o estado de carregamento enquanto o Clerk obtém os dados do usuário */}
           <ClerkLoading>
             <div className="flex h-screen animate-pulse items-center justify-center">
               <Image src="/logo.svg" alt="Logo" width={300} height={300} />
             </div>
           </ClerkLoading>
 
+          {/* Exibe o conteúdo da aplicação após o carregamento dos dados */}
           <ClerkLoaded>
             <div className="flex h-full flex-col xl:overflow-hidden">
               {children}
             </div>
           </ClerkLoaded>
         </ClerkProvider>
+
+        {/* Exibe notificações via toasts */}
         <Toaster />
       </body>
     </html>
