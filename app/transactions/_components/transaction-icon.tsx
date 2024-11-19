@@ -1,4 +1,3 @@
-// components/TransactionIcon.tsx
 import { Transaction } from "@prisma/client";
 import {
   Utensils,
@@ -16,6 +15,7 @@ type CategoryIconProps = {
   category: Transaction["category"];
 };
 
+// Define estilos e ícones para cada categoria de transação
 const categoryStyles: Record<
   Transaction["category"],
   { icon: React.ElementType; color: string }
@@ -35,6 +35,7 @@ const TransactionIcon: React.FC<CategoryIconProps> = ({ category }) => {
   const { icon: Icon, color } = categoryStyles[category];
 
   return (
+    // Exibe o ícone com estilos configurados para a categoria
     <div
       className={`flex min-h-10 min-w-10 items-center justify-center rounded-full ${color}`}
     >

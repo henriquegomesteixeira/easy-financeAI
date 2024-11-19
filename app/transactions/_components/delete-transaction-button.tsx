@@ -11,8 +11,8 @@ import {
 } from "@/app/_components/ui/alert-dialog";
 import { Button } from "@/app/_components/ui/button";
 import { TrashIcon } from "lucide-react";
-import { deleteTransaction } from "../_actions/delete-transaction";
-import { toast } from "sonner";
+import { deleteTransaction } from "../_actions/delete-transaction"; // Função que deleta a transação
+import { toast } from "sonner"; // Exibe notificações de sucesso ou erro
 
 interface DeleteTransactionbuttonProps {
   transactionId: string;
@@ -21,6 +21,7 @@ interface DeleteTransactionbuttonProps {
 const DeleteTransactionbutton = ({
   transactionId,
 }: DeleteTransactionbuttonProps) => {
+  // Notifica o usuário sobre a ação de deletar a transação.
   const handleConfirmDeleteClick = async () => {
     try {
       await deleteTransaction({ transactionId });
@@ -33,6 +34,8 @@ const DeleteTransactionbutton = ({
 
   return (
     <AlertDialog>
+      {/* asChild é um prop que faz com que o componente seja renderizado
+      como filho do componente pai */}
       <AlertDialogTrigger asChild>
         <Button variant="ghost" size="icon" className="text-muted-foreground">
           <TrashIcon />
