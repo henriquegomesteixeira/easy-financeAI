@@ -16,7 +16,7 @@ interface AddTransactionButtonProps {
 }
 
 const AddTransactionButton = ({
-  userCanAddTransaction,
+  userCanAddTransaction = true, // Padrão como verdadeiro para evitar erros
 }: AddTransactionButtonProps) => {
   const [dialogIsOpen, setDialogIsOpen] = useState(false);
 
@@ -24,11 +24,12 @@ const AddTransactionButton = ({
     <>
       <TooltipProvider>
         <Tooltip>
+          {/* Botão principal */}
           <TooltipTrigger asChild>
             <Button
-              className="rounded-full font-bold"
+              className="flex items-center gap-2 rounded-full font-bold"
               onClick={() => setDialogIsOpen(true)}
-              disabled={!userCanAddTransaction}
+              disabled={!userCanAddTransaction} // Desabilita o botão se o usuário não puder adicionar
             >
               <span>
                 Adicionar <span className="hidden lg:inline">Transação</span>
@@ -36,12 +37,18 @@ const AddTransactionButton = ({
               <ArrowDownUpIcon />
             </Button>
           </TooltipTrigger>
-          <TooltipContent>
-            {!userCanAddTransaction &&
-              "Você atingiu o limite de transações. Atualize seu plano para criar transações ilimitadas."}
-          </TooltipContent>
+
+          {/* Tooltip que explica o motivo da desabilitação do botão */}
+          {!userCanAddTransaction && (
+            <TooltipContent>
+              Você atingiu o limite de transações. Atualize seu plano para criar
+              transações ilimitadas.
+            </TooltipContent>
+          )}
         </Tooltip>
       </TooltipProvider>
+
+      {/* Modal de criação/edição de transações */}
       <UpsertTransactionDialog
         isOpen={dialogIsOpen}
         setIsOpen={setDialogIsOpen}
