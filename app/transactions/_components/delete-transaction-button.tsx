@@ -10,21 +10,25 @@ import {
   AlertDialogTrigger,
 } from "@/app/_components/ui/alert-dialog";
 import { Button } from "@/app/_components/ui/button";
-import { TrashIcon } from "lucide-react";
-import { deleteTransaction } from "../_actions/delete-transaction"; // Função que deleta a transação
-import { toast } from "sonner"; // Exibe notificações de sucesso ou erro
+import { Trash2 } from "lucide-react";
+import { deleteTransaction } from "../_actions/delete-transaction"; // Função para excluir a transação no backend
+import { toast } from "sonner"; // Biblioteca para exibição de notificações
 
 interface DeleteTransactionbuttonProps {
   transactionId: string;
+  className?: string;
+  sizeButton?: "icon" | "default" | "sm" | "lg" | null | undefined; // Tamanho do botão
 }
 
 const DeleteTransactionbutton = ({
   transactionId,
+  className,
+  sizeButton = "icon",
 }: DeleteTransactionbuttonProps) => {
-  // Notifica o usuário sobre a ação de deletar a transação.
+  // Função executada ao confirmar a exclusão
   const handleConfirmDeleteClick = async () => {
     try {
-      await deleteTransaction({ transactionId });
+      await deleteTransaction({ transactionId }); // Remove a transação no backend
       toast.success("Transação deletada com sucesso!");
     } catch (error) {
       console.error(error);
@@ -34,13 +38,18 @@ const DeleteTransactionbutton = ({
 
   return (
     <AlertDialog>
-      {/* asChild é um prop que faz com que o componente seja renderizado
-      como filho do componente pai */}
+      {/* Botão que dispara o diálogo de confirmação */}
       <AlertDialogTrigger asChild>
-        <Button variant="ghost" size="icon" className="text-muted-foreground">
-          <TrashIcon />
+        <Button
+          variant="ghost"
+          size={sizeButton}
+          className={`p-0 text-muted-foreground ${className}`}
+        >
+          <Trash2 />
         </Button>
       </AlertDialogTrigger>
+
+      {/* Conteúdo do diálogo de confirmação */}
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>
@@ -52,6 +61,7 @@ const DeleteTransactionbutton = ({
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancelar</AlertDialogCancel>
+          {/* Botão para confirmar a exclusão */}
           <AlertDialogAction onClick={handleConfirmDeleteClick}>
             Continuar
           </AlertDialogAction>
