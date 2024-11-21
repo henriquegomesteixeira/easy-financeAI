@@ -6,7 +6,7 @@ import {
   TransactionType,
 } from "@prisma/client";
 import SwipeableTransactionItem from "./swipeable-transaction-item";
-import { Decimal } from "@prisma/client/runtime/library";
+import Decimal from "decimal.js";
 import AlertHasData from "@/app/_components/ui/alert-has-data";
 
 interface Transaction {
