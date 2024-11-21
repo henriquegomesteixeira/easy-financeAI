@@ -7,7 +7,7 @@ import {
   TRANSACTION_CATEGORY_LABELS,
   TRANSACTION_PAYMENT_METHOD_LABELS,
 } from "@/app/_constants/transactions";
-import EditTransactionButton from "./edit-transaction-button";
+import EditTransactionButton from "../_components/edit-transaction-button";
 import TransactionIcon from "../_components/transaction-icon";
 import DeleteTransactionbutton from "../_components/delete-transaction-button";
 

@@ -8,7 +8,7 @@ import {
   TRANSACTION_PAYMENT_METHOD_LABELS,
 } from "@/app/_constants/transactions";
 import { EllipsisVertical } from "lucide-react";
-import EditTransactionButton from "../_columns/edit-transaction-button";
+import EditTransactionButton from "./edit-transaction-button";
 import DeleteTransactionbutton from "./delete-transaction-button";
 import { Transaction } from "@prisma/client";
 import FormattedAmount from "./formatted-amount-props";

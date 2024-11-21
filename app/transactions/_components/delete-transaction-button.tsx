@@ -43,7 +43,7 @@ const DeleteTransactionbutton = ({
         <Button
           variant="ghost"
           size={sizeButton}
-          className={`p-0 text-muted-foreground ${className}`}
+          className={`p-0 text-red-500 hover:text-red-500 ${className}`}
         >
           <Trash2 />
         </Button>
