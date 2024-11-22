@@ -11,12 +11,14 @@ import EditTransactionButton from "../_components/edit-transaction-button";
 import TransactionIcon from "../_components/transaction-icon";
 import DeleteTransactionbutton from "../_components/delete-transaction-button";
 
+// Definição das colunas para a tabela
 export const TransactionColumns: ColumnDef<Transaction>[] = [
   {
     accessorKey: "name",
-    header: "Nome",
+    header: "Nome ",
     cell: ({ row: { original: transaction } }) => (
       <div className="flex items-center space-x-3">
+        {/* Ícone associado à categoria */}
         <TransactionIcon category={transaction.category} />
         <span className="whitespace-nowrap">{transaction.name}</span>
       </div>
@@ -24,15 +26,22 @@ export const TransactionColumns: ColumnDef<Transaction>[] = [
   },
   {
     accessorKey: "type",
-    header: "Tipo",
+    header: "Tipo ",
     cell: ({ row: { original: transaction } }) => (
       <TransactionTypeBadge transaction={transaction} />
     ),
   },
   {
     accessorKey: "amount",
-    header: "Valor",
+    header: "Valor ",
+    sortingFn: (rowA, rowB) => {
+      // Converte para número antes de comparar
+      const amountA = parseFloat(rowA.original.amount.toString() || "0");
+      const amountB = parseFloat(rowB.original.amount.toString() || "0");
+      return amountA - amountB;
+    },
     cell: ({ row: { original: transaction } }) =>
+      // Formata o valor como moeda em BRL
       new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL",
@@ -40,13 +49,13 @@ export const TransactionColumns: ColumnDef<Transaction>[] = [
   },
   {
     accessorKey: "category",
-    header: "Categoria",
+    header: "Categoria ",
     cell: ({ row: { original: transaction } }) =>
       TRANSACTION_CATEGORY_LABELS[transaction.category],
   },
   {
     accessorKey: "paymentMethod",
-    header: "Método de pagamento",
+    header: "Métod ",
     cell: ({ row: { original: transaction } }) => (
       <span className="whitespace-nowrap">
         {TRANSACTION_PAYMENT_METHOD_LABELS[transaction.paymentMethod]}
@@ -55,7 +64,9 @@ export const TransactionColumns: ColumnDef<Transaction>[] = [
   },
   {
     accessorKey: "date",
-    header: "Data",
+    header: "Data ",
+    enableSorting: true,
+    sortingFn: "datetime", // Ordenação de datas
     cell: ({ row: { original: transaction } }) => (
       <span className="whitespace-nowrap">
         {new Date(transaction.date).toLocaleDateString("pt-BR", {
@@ -71,6 +82,7 @@ export const TransactionColumns: ColumnDef<Transaction>[] = [
     header: "",
     cell: ({ row: { original: transaction } }) => (
       <div className="flex flex-nowrap space-x-1 text-nowrap">
+        {/* Botões de editar e excluir */}
         <EditTransactionButton transaction={transaction} />
         <DeleteTransactionbutton transactionId={transaction.id} />
       </div>
