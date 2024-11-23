@@ -41,7 +41,7 @@ const TransactionsPage = async () => {
       />
       <div className="flex flex-col space-y-4 p-6 xs:space-y-3 md:overflow-hidden md:p-0 lg:p-6">
         {/* Cabeçalho com título e botão de adicionar transação */}
-        <div className="flex w-full items-center justify-between md:px-6 md:pt-6 lg:px-0 lg:pt-0">
+        <div className="flex w-full items-center justify-between md:px-6 md:pb-4 md:pt-6 lg:px-0 lg:pt-0">
           <h1 className="text-2xl font-bold">Transações</h1>
           {/* Botão de adicionar transação visível apenas se o usuário tiver permissão */}
           <AddTransactionButton userCanAddTransaction={userCanAddTransaction} />
