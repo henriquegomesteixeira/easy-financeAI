@@ -41,22 +41,29 @@ const Home = async ({ searchParams: { month } }: HomeProps) => {
         <div className="flex justify-between">
           <h1 className="text-2xl font-bold">Dashboard</h1>
           <div className="flex flex-col items-end gap-3 sm:flex-row">
+            {/* Componente para gerar relatório IA */}
             <AiReportButton
               month={month}
               hasPremiumPlan={
                 user.publicMetadata.subscriptionPlan === "premium"
               }
+              initialAiUsageCount={
+                Number(user.publicMetadata.aiUsageCount) || 0
+              }
             />
+            {/* Componente para selecionar o tempo/período */}
             <TimeSelect />
           </div>
         </div>
         <div className="grid h-full gap-6 overflow-hidden xl:grid-cols-[2fr,1fr]">
           <div className="flex flex-col gap-6 overflow-hidden">
+            {/* Componente de resumo financeiro (cards) */}
             <SummaryCards
               month={month}
               {...dashboard}
               userCanAddTransaction={userCanAddTransaction}
             />
+            {/* Gráficos e visualizações */}
             <div className="grid h-full grid-cols-1 gap-y-6 overflow-hidden md:grid-cols-3 md:grid-rows-1 md:gap-6">
               <TransactionsPieChart {...dashboard} />
               <ExpensesPerCategory
@@ -64,6 +71,7 @@ const Home = async ({ searchParams: { month } }: HomeProps) => {
               />
             </div>
           </div>
+          {/* Exibe as últimas transações */}
           <LastTransactions lastTransactions={dashboard.lastTransactions} />
         </div>
       </div>

@@ -7,13 +7,20 @@ import AcquirePlanButton from "./_components/acquire-plan-button";
 import { Badge } from "../_components/ui/badge";
 import { getCurrentMonthTransactions } from "../_data/get-current-month-transactions";
 
+// Componente da página de assinatura
 const SubscriptionPage = async () => {
   const { userId } = await auth();
   if (!userId) {
     redirect("/login");
   }
+
+  // Obtém os dados do usuário autenticado pelo Clerk
   const user = await clerkClient().users.getUser(userId);
+
+  // Obtém o número de transações realizadas pelo usuário no mês atual
   const currentMonthTransactions = await getCurrentMonthTransactions();
+
+  // Verifica se o usuário possui o plano premium
   const hasPremiumPlan = user.publicMetadata.subscriptionPlan == "premium";
   return (
     <>
@@ -22,6 +29,7 @@ const SubscriptionPage = async () => {
         <h1 className="text-2xl font-bold">Assinatura</h1>
 
         <div className="flex flex-col gap-6 sm:flex-row">
+          {/* Card do Plano Básico */}
           <Card className="w-full sm:w-[450px]">
             <CardHeader className="border-b border-solid py-8">
               <h2 className="text-center text-2xl font-semibold">
@@ -47,6 +55,7 @@ const SubscriptionPage = async () => {
             </CardContent>
           </Card>
 
+          {/* Card do Plano Premium */}
           <Card className="w-full sm:w-[450px]">
             <CardHeader className="relative border-b border-solid py-8">
               {hasPremiumPlan && (
@@ -59,7 +68,7 @@ const SubscriptionPage = async () => {
               </h2>
               <div className="flex items-center justify-center gap-3">
                 <span className="text-4xl">R$</span>
-                <span className="text-6xl font-semibold">19</span>
+                <span className="text-6xl font-semibold">0,99</span>
                 <div className="text-2xl text-muted-foreground">/mês</div>
               </div>
             </CardHeader>

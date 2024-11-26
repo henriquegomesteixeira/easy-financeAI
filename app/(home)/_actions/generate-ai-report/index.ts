@@ -29,8 +29,22 @@ export const generateAiReport = async ({ month }: GenerateAiReportSchema) => {
 
   // Verifica se o usuário tem o plano premium
   const hasPremiumPlan = user.publicMetadata.subscriptionPlan === "premium";
+
+  // Controle de uso para usuários não premium
   if (!hasPremiumPlan) {
-    throw new Error("You need a premium plan to generate AI reports"); // Bloqueia usuários sem plano premium
+    const aiUsageCount = Number(user.publicMetadata.aiUsageCount) || 0; // Obtém o contador atual ou assume 0
+
+    if (aiUsageCount >= 3) {
+      throw new Error("You've reached the free usage limit for AI reports.");
+    }
+
+    // Incrementa o contador de uso
+    await clerkClient.users.updateUser(userId, {
+      publicMetadata: {
+        ...user.publicMetadata,
+        aiUsageCount: aiUsageCount + 1, // Incrementa o contador
+      },
+    });
   }
 
   // Verifica se a chave da OpenAI está configurada
