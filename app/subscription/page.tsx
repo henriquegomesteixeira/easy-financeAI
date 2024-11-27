@@ -50,7 +50,7 @@ const SubscriptionPage = async () => {
               </div>
               <div className="flex items-center gap-2">
                 <XIcon />
-                <p>Relatórios de IA</p>
+                <p>Relatórios de IA ilimitados</p>
               </div>
             </CardContent>
           </Card>
@@ -79,7 +79,7 @@ const SubscriptionPage = async () => {
               </div>
               <div className="flex items-center gap-2">
                 <CheckIcon className="text-primary" />
-                <p>Relatórios de IA</p>
+                <p>Relatórios de IA ilimitados</p>
               </div>
               <AcquirePlanButton />
             </CardContent>
