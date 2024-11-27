@@ -1,64 +1,89 @@
-# Easy FinanceAi
-Easy FinanceAi é um SaaS de gestão financeira que utiliza inteligência artificial para auxiliar no gerenciamento de finanças pessoais e corporativas. O projeto é desenvolvido com Next.js 14, TypeScript e Tailwind CSS.
+![Logo](/public/logo.svg)
 
-## Tecnologias Principais
-- **Next.js 14**: Framework React para desenvolvimento frontend.
-- **TypeScript**: Adiciona tipagem estática ao JavaScript, melhorando a segurança do código.
-- **Tailwind CSS**: Framework de estilos utilitário.
-- **ShadCN**: Conjunto de componentes UI prontos para uso, integrados ao Tailwind CSS, para facilitar a construção da interface do usuário.
-- **Prisma**: ORM para interagir com o banco de dados PostgreSQL.
-- **PostgreSQL**: Banco de dados relacional.
-- **Clerk**: Sistema de autenticação e gerenciamento de usuários.
+**Easy FinanceAi** é uma aplicação web projetada para simplificar o gerenciamento financeiro pessoal. A plataforma combina um dashboard intuitivo com gráficos interativos e relatórios personalizados gerados por **inteligência artificial**, oferecendo aos usuários insights avançados sobre suas finanças. Com um sistema seguro de login via **Clerk**, os usuários podem gerenciar receitas, despesas e investimentos detalhadamente, além de escolher entre planos gratuito ou premium, adaptados às suas necessidades.
 
-## Tecnologias de Suporte ao Desenvolvimento
-- **Husky**: Ferramenta para criar hooks de Git, garantindo que scripts sejam executados antes de ações de commit ou push.
-- **lint-staged**: Executa linters apenas nos arquivos que foram staged no Git, melhorando a eficiência durante os commits.
-- **ESLint**: Ferramenta de linting para manter a qualidade do código.
-- **Prettier** (com `prettier-plugin-tailwindcss`): Formatação automática de código e ordenação de classes CSS do Tailwind.
-- **git-commit-msg-linter**: Linter para padronizar mensagens de commit.
+---
 
-## Estrutura Inicial do Banco de Dados
-O modelo `Transaction` é a base de armazenamento das transações financeiras:
+### **Índice**
+1. [Introdução](#Introdução)
+2. [Tecnologias Principais](#tecnologias-principais)
+3. [Tecnologias de Suporte](#tecnologias-de-suporte)
+ 
+---
 
-```prisma
-model Transaction {
-  id            String                   @id @default(uuid())
-  name          String
-  type          TransactionType
-  amount        Decimal                  @db.Decimal(10, 2)
-  category      TransactionCategory
-  paymentMethod TransactionPaymentMethod
-  date          DateTime
-  createdAt     DateTime                 @default(now())
-  updatedAt     DateTime                 @updatedAt
-}
-enum TransactionType {
-  DEPOSIT
-  EXPENSE
-  INVESTMENT
-}
-enum TransactionCategory {
-  HOUSING
-  TRANSPORTATION
-  FOOD
-  ENTERTAINMENT
-  HEALTH
-  UTILITY
-  SALARY
-  EDUCATION
-  OTHER
-}
-enum TransactionPaymentMethod {
-  CREDIT_CARD
-  DEBIT_CARD
-  BANK_TRANSFER
-  BANK_SLIP
-  CASH
-  PIX
-  OTHER
-}
-```
+### **Introdução**
+O **Easy FinanceAi** é uma plataforma web responsiva desenvolvida para ajudar os usuários a organizarem suas finanças e planejarem seu futuro financeiro de forma prática e eficiente. Focado exclusivamente em finanças pessoais, o site oferece uma interface simples e intuitiva, baseada em princípios modernos de **UI/UX design**. Seu principal diferencial é a geração de relatórios financeiros personalizados utilizando o **ChatGPT-4**, que fornece análises detalhadas e conselhos úteis para o planejamento financeiro.
 
-- **`TransactionType`**: Define os tipos possíveis de transação, como depósito, despesa e investimento.
-- **`TransactionCategory`**: Categoriza a transação, como moradia, alimentação, saúde, etc.
-- **`TransactionPaymentMethod`**: Enumera os métodos de pagamento possíveis, incluindo cartão de crédito, transferência bancária e PIX.
+Totalmente acessível através de navegadores, o Easy FinanceAi garante uma experiência personalizada, permitindo que os usuários façam login com Gmail, Microsoft, Apple ou e-mail e senha. No futuro, o projeto planeja expandir suas funcionalidades com uma ferramenta de planejamento financeiro mensal, onde os usuários poderão definir metas de gastos fixos para todos os meses.
+
+---
+
+### **Funcionalidades Principais**
+#### 1. **Autenticação Segura e Personalização**
+- Login utilizando Gmail, Microsoft, Apple ou e-mail e senha, gerenciado por **Clerk**.
+- Cada usuário possui uma conta única, com seus próprios dados financeiros armazenados de forma segura.
+
+#### 2. **Dashboard Intuitivo**
+- Resumo financeiro do mês, exibindo:
+  - **Saldo** atual.
+  - **Investimentos**, **receitas** e **despesas**.
+- Gráficos interativos, incluindo:
+  - Receita mensal.
+  - Despesas mensais.
+  - Investimentos realizados.
+  - Gastos categorizados.
+- Histórico das últimas transações.
+- **Filtro de meses**, permitindo visualizar dados financeiros de períodos específicos.
+- **Relatórios financeiros gerados por IA**:
+  - Utiliza os dados financeiros do usuário para fornecer recomendações práticas e personalizadas, ajudando a organizar melhor as finanças.
+
+#### 3. **Gerenciamento de Transações**
+- Página dedicada ao gerenciamento de transações, com:
+  - Tabela completa de todas as transações registradas.
+  - Opções para **editar** ou **excluir** transações.
+  - Detalhes incluídos em cada registro:
+    - Nome.
+    - Tipo (despesa, investimento ou depósito).
+    - Valor.
+    - Categoria.
+    - Método de pagamento.
+    - Data.
+
+#### 4. **Planos de Assinatura**
+- **Plano Básico** (gratuito):
+  - Até **10 transações**.
+  - **3 relatórios** gerados por IA por mês.
+- **Plano Premium**:
+  - Transações e relatórios ilimitados.
+  - Ideal para usuários com maior volume financeiro ou necessidade de análises frequentes.
+
+#### 5. **Expansões Futuras**
+- Planejamento financeiro mensal:
+  - Funcionalidade em desenvolvimento que permitirá definir metas de gastos fixos mensais, ajudando no controle e no alcance de objetivos financeiros.
+
+---
+
+### **Tecnologias Principais**
+- [**Next.js 14**](https://nextjs.org/): Framework React para aplicações full-stack, com renderização no servidor e páginas estáticas.
+- [**TypeScript**](https://www.typescriptlang.org/): Tipagem estática para maior segurança e escalabilidade.
+- [**Tailwind CSS**](https://tailwindcss.com/): Framework de estilos utilitários para criar interfaces responsivas.
+- [**ShadCN**](https://ui.shadcn.com/): Biblioteca de componentes UI integrada ao Tailwind CSS.
+- [**Prisma**](https://www.prisma.io/): ORM para bancos de dados relacionais, usado com **PostgreSQL**.
+- [**PostgreSQL**](https://www.postgresql.org/): Banco de dados relacional para armazenamento seguro de informações financeiras.
+- [**Clerk**](https://clerk.dev/): Sistema de autenticação e gerenciamento de usuários.
+
+### **Tecnologias de Suporte**
+
+#### **Funcionalidade**
+
+- [**Stripe**](https://stripe.com/): Processamento de pagamentos com cartão de crédito.
+- [**React Hook Form**](https://react-hook-form.com/): Biblioteca de formulários com validação eficiente.
+- [**Recharts**](https://recharts.org/): Biblioteca para gráficos interativos.
+- [**OpenAI**](https://openai.com/): Integração com a API GPT-4 para relatórios financeiros baseados em IA.
+
+#### **Qualidade e Automação**
+
+- [**ESLint**](https://eslint.org/): Linting para qualidade e consistência de código.
+- [**Prettier**](https://prettier.io/): Formatação automática de código.
+- [**Husky**](https://typicode.github.io/husky/): Hooks do Git para automação de tarefas.
+- [**Lint-Staged**](https://github.com/okonet/lint-staged): Linting otimizado para arquivos modificados.
