@@ -10,13 +10,13 @@
 4. [Tecnologias de Suporte](#Tecnologias-de-Suporte)
 5. [Configuração do Projeto Easy FinanceAi](#Configuração-do-Projeto-Easy-FinanceAi)
    1. [Pré-requisitos](#Pré-requisitos)
-   2. [Clonar o Repositório](#Passo 1: Clonar-o-Repositório)
-   3. [Instalar Dependências](#Passo 2: Instalar-Dependências)
-   4. [Configurar Variáveis de Ambiente](#Passo 3: Configurar-Variáveis-de-Ambiente)
-   5. [Configurar o Banco de Dados](#Passo 4: Configurar-o-Banco-de-Dados)
-   6. [Configurar o Prisma](#Passo 5: Configurar-o-Prisma)
-   7. [Rodar o Servidor de Desenvolvimento](#Passo 6: Rodar-o-Servidor-de-Desenvolvimento)
-   8. [Configuração de Webhooks](#Passo 7: Configuração-de-Webhooks-Opicional)
+   2. [Clonar o Repositório](#Passo-1:-Clonar-o-Repositório)
+   3. [Instalar Dependências](#Passo-2:-Instalar-Dependências)
+   4. [Configurar Variáveis de Ambiente](#Passo-3:-Configurar-Variáveis-de-Ambiente)
+   5. [Configurar o Banco de Dados](#Passo-4:-Configurar-o-Banco-de-Dados)
+   6. [Configurar o Prisma](#Passo-5:-Configurar-o-Prisma)
+   7. [Rodar o Servidor de Desenvolvimento](#Passo-6:-Rodar-o-Servidor-de-Desenvolvimento)
+   8. [Configuração de Webhooks](#Passo-7:-Configuração-de-Webhooks-Opicional)
 
 ## **Introdução**
 
