@@ -40,27 +40,6 @@ Acesse a plataforma com facilidade e segurança:
 
 ### **2. Dashboard Intuitivo**
 
-**Easy FinanceAi** é uma aplicação web projetada para simplificar o gerenciamento financeiro pessoal. A plataforma combina um dashboard intuitivo com gráficos interativos e relatórios personalizados gerados por **inteligência artificial**, oferecendo aos usuários insights avançados sobre suas finanças. Com um sistema seguro de login via **Clerk**, os usuários podem gerenciar receitas, despesas e investimentos detalhadamente, além de escolher entre planos gratuito ou premium, adaptados às suas necessidades.
-
-## **Introdução**
-
-O **Easy FinanceAi** é uma plataforma web responsiva desenvolvida para ajudar os usuários a organizarem suas finanças e planejarem seu futuro financeiro de forma prática e eficiente. Focado exclusivamente em finanças pessoais, o site oferece uma interface simples e intuitiva, baseada em princípios modernos de **UI/UX design**. Seu principal diferencial é a geração de relatórios financeiros personalizados utilizando o **ChatGPT-4**, que fornece análises detalhadas e conselhos úteis para o planejamento financeiro.
-
-Totalmente acessível através de navegadores, o Easy FinanceAi garante uma experiência personalizada, permitindo que os usuários façam login com Gmail, Microsoft, Apple ou e-mail e senha. No futuro, o projeto planeja expandir suas funcionalidades com uma ferramenta de planejamento financeiro mensal, onde os usuários poderão definir metas de gastos fixos para todos os meses.
-
-## **Funcionalidades Principais**
-
-### **1. Autenticação Segura e Personalização**
-
-Acesse a plataforma com facilidade e segurança:
-
-- Login via Gmail, Microsoft, Apple ou e-mail e senha.
-- Gerenciamento de usuários com **Clerk**, garantindo contas exclusivas e dados financeiros seguros.
-
----
-
-### **2. Dashboard Intuitivo**
-
 Monitore suas finanças de maneira prática e visual:
 
 - **Resumo Financeiro Mensal:** Saldo atual, receitas, despesas e investimentos.
