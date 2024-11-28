@@ -19,6 +19,7 @@
    6. [Configurar o Prisma](#passo-5-configurar-o-prisma)
    7. [Rodar o Servidor de Desenvolvimento](#passo-6-rodar-o-servidor-de-desenvolvimento)
    8. [Configuração de Webhooks](#passo-7-configuração-de-webhooks)
+6. [Arquitetura do Projeto Easy FinanceAi](#arquitetura-do-projeto-easy-financeAi)
 
 ## **Introdução**
 
@@ -647,3 +648,70 @@ Para integrar os webhooks do **Stripe**, você pode usar o **Stripe CLI** ou con
    Para usar webhooks no ambiente de produção ou remoto, basta configurar a URL do webhook no painel do Stripe e no backend da sua aplicação para receber os eventos.
 
 Para mais informações detalhadas sobre como configurar webhooks no Stripe, consulte a [documentação oficial do Stripe CLI](https://stripe.com/docs/stripe-cli) e [webhooks do Stripe](https://stripe.com/docs/webhooks).
+
+## **Arquitetura do Projeto Easy FinanceAi**
+
+A estrutura do projeto segue uma organização modular e lógica, garantindo escalabilidade e facilidade de manutenção. Abaixo está uma explicação detalhada das principais pastas e arquivos do projeto.
+
+### **1. Estrutura Geral do Projeto**
+
+```plaintext
+.
+├── app/                # Diretório principal contendo rotas e componentes do Next.js
+├── prisma/             # Configurações e esquema do banco de dados
+├── public/             # Arquivos estáticos como imagens e ícones
+├── components.json     # Configurações relacionadas a componentes
+├── docker-compose.yml  # Configuração do ambiente Docker
+├── middleware.ts       # Middleware para interceptação de requisições
+├── next.config.mjs     # Configuração do Next.js
+├── package.json        # Dependências e scripts do projeto
+├── prisma/             # ORM Prisma para definição de esquema e migrações
+├── tailwind.config.ts  # Configuração do Tailwind CSS
+├── tsconfig.json       # Configuração do TypeScript
+└── README.md           # Documentação do projeto
+```
+
+### **2. Detalhes do Diretório `app/`**
+
+O diretório `app` segue a estrutura de rotas do Next.js 13 e organiza os arquivos por funcionalidades.
+
+```plaintext
+app/
+├── _actions/           # Funções assíncronas que gerenciam operações no servidor
+├── api/                # Endpoints da API
+├── _components/        # Componentes reutilizáveis e específicos de UI
+├── _constants/         # Constantes utilizadas no projeto
+├── _data/              # Funções e lógicas relacionadas à manipulação de dados
+├── (home)/             # Página inicial e seus subcomponentes
+├── login/              # Página de login
+├── subscription/       # Página de assinatura e gerenciamento de planos
+├── transactions/       # Página de transações
+├── _utils/             # Utilitários e funções auxiliares
+└── layout.tsx          # Layout principal do projeto
+```
+
+### **3. `app/api/`**
+Contém as rotas de API implementadas com Next.js.
+
+Exemplo:
+```plaintext
+api/
+└── webhooks/
+    └── stripe/
+        └── route.ts      # Webhook do Stripe para gerenciar eventos
+```
+
+### **4. `app/_components/`**
+Armazena os componentes reutilizáveis para diferentes partes do projeto.
+
+Exemplo:
+```plaintext
+_components/
+├── add-transaction-button.tsx    # Botão para adicionar transações
+├── money-input.tsx               # Componente para entrada de valores monetários
+├── ui/                           # Componentes de interface reutilizáveis
+│   ├── alert-dialog.tsx
+│   ├── button.tsx
+│   └── tooltip.tsx
+└── upsert-transaction-dialog.tsx # Modal para criar/editar transações
+```
