@@ -2,6 +2,8 @@
 
 **Easy FinanceAi** é uma aplicação web projetada para simplificar o gerenciamento financeiro pessoal. A plataforma combina um dashboard intuitivo com gráficos interativos e relatórios personalizados gerados por **inteligência artificial**, oferecendo aos usuários insights avançados sobre suas finanças. Com um sistema seguro de login via **Clerk**, os usuários podem gerenciar receitas, despesas e investimentos detalhadamente, além de escolher entre planos gratuito ou premium, adaptados às suas necessidades.
 
+![Capa](/public/Capa.png)
+
 ## **Índice**
 
 1. [Introdução](#introdução)
@@ -625,9 +627,11 @@ Abra o navegador e acesse o projeto em [http://localhost:3000](http://localhost:
 ---
 
 ### **Passo 7: Configuração de Webhooks**
+
 Para integrar os webhooks do **Stripe**, você pode usar o **Stripe CLI** ou configurar diretamente na sua aplicação. Abaixo está um guia básico para configurar os webhooks.
 
 1. **Configuração Básica com Stripe CLI (Local)**:
+
    - Baixe e instale o [Stripe CLI](https://docs.stripe.com/stripe-cli).
    - Faça login no Stripe CLI:
      ```bash
@@ -637,7 +641,7 @@ Para integrar os webhooks do **Stripe**, você pode usar o **Stripe CLI** ou con
      ```bash
      stripe listen --forward-to localhost:3000/api/webhooks/stripe
      ```
-   Isso redirecionará os eventos de webhook para sua aplicação local.
+     Isso redirecionará os eventos de webhook para sua aplicação local.
 
 2. **Configuração de Webhooks (Remota)**:
    Para usar webhooks no ambiente de produção ou remoto, basta configurar a URL do webhook no painel do Stripe e no backend da sua aplicação para receber os eventos.
