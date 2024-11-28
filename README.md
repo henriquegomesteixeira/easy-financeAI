@@ -4,21 +4,20 @@
 
 ## **Índice**
 
-1. [Introdução](#Introdução)
-2. [Funcionalidades Principais](#Funcionalidades-Principais)
-3. [Tecnologias Principais](#Tecnologias-Principais)
-4. [Tecnologias de Suporte](#Tecnologias-de-Suporte)
-5. [Configuração do Projeto Easy FinanceAi](#Configuração-do-Projeto-Easy-FinanceAi)
-   1. [Pré-requisitos](#Pré-requisitos)
-   2. [Clonar o Repositório](#Clonar-o-Repositório)
-  1. [Instalar Dependências](#Instalar-Dependências)
-   3. [Configurar Variáveis de Ambiente](#Configurar-Variáveis-de-Ambiente)
-   4. [Configurar o Banco de Dados](#Configurar-o-Banco-de-Dados)
-      1. [Usar Banco de Dados Remoto](#Usar-Banco-de-Dados-Remoto)
-      2. [Usar Docker para Banco de Dados Local](#Usar-Docker-para-Banco-de-Dados-Local)
-   5. [Configurar o Prisma](#Configurar-o-Prisma)
-   6. [Rodar o Servidor de Desenvolvimento](#Rodar-o-Servidor-de-Desenvolvimento)
-      1. [Configuração de Webhooks](#Configuração-de-Webhooks-Opicional)
+1. [Introdução](#introducao)
+2. [Funcionalidades Principais](#funcionalidades-principais)
+3. [Tecnologias Principais](#tecnologias-principais)
+4. [Tecnologias de Suporte](#tecnologias-de-suporte)
+5. [Configuração do Projeto Easy FinanceAi](#configuracao-do-projeto-easy-financeai)
+   1. [Pré-requisitos](#pre-requisitos)
+   2. [Clonar o Repositório](#clonar-o-repositorio)
+   3. [Instalar Dependências](#instalar-dependencias)
+   4. [Configurar Variáveis de Ambiente](#configurar-variaveis-de-ambiente)
+   5. [Configurar o Banco de Dados](#configurar-o-banco-de-dados)
+   6. [Configurar o Prisma](#configurar-o-prisma)
+   7. [Rodar o Servidor de Desenvolvimento](#rodar-o-servidor-de-desenvolvimento)
+   8. [Configuração de Webhooks](#configuracao-de-webhooks)
+
 
 ## **Introdução**
 
@@ -122,6 +121,8 @@ Certifique-se de ter os seguintes itens instalados na sua máquina:
 - [NPM](https://www.npmjs.com/) ou [Yarn](https://yarnpkg.com/)
 - [PostgreSQL](https://www.postgresql.org/) (Para utilizar um serviço de hospedagem de banco de dados remoto)
 - [Docker](https://www.docker.com/) (Para configurar o banco de dados localmente)
+
+---
 
 ### **Passo 1: Clonar o Repositório**
 
