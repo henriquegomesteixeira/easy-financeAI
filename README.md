@@ -21,10 +21,6 @@
       6. [Rodar o Servidor de Desenvolvimento](#Rodar-o-Servidor-de-Desenvolvimento)
       7. [Configuração de Webhooks](#Configuração-de-Webhooks-Opicional)
 
----
-
-Esse índice está mais direto e reflete todos os pontos importantes da documentação, garantindo uma navegação fácil.
-
 ## **Introdução**
 
 O **Easy FinanceAi** é uma plataforma web responsiva desenvolvida para ajudar os usuários a organizarem suas finanças e planejarem seu futuro financeiro de forma prática e eficiente. Focado exclusivamente em finanças pessoais, o site oferece uma interface simples e intuitiva, baseada em princípios modernos de **UI/UX design**. Seu principal diferencial é a geração de relatórios financeiros personalizados utilizando o **ChatGPT-4**, que fornece análises detalhadas e conselhos úteis para o planejamento financeiro.
@@ -44,15 +40,7 @@ Acesse a plataforma com facilidade e segurança:
 
 ### **2. Dashboard Intuitivo**
 
-Monitore suas finanças de ma# ![Logo](/public/logo.svg)
-
 **Easy FinanceAi** é uma aplicação web projetada para simplificar o gerenciamento financeiro pessoal. A plataforma combina um dashboard intuitivo com gráficos interativos e relatórios personalizados gerados por **inteligência artificial**, oferecendo aos usuários insights avançados sobre suas finanças. Com um sistema seguro de login via **Clerk**, os usuários podem gerenciar receitas, despesas e investimentos detalhadamente, além de escolher entre planos gratuito ou premium, adaptados às suas necessidades.
-
-## **Índice**
-
-1. [Introdução](#Introdução)
-2. [Tecnologias Principais](#tecnologias-principais)
-3. [Tecnologias de Suporte](#tecnologias-de-suporte)
 
 ## **Introdução**
 
