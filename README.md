@@ -11,14 +11,14 @@
 5. [Configuração do Projeto Easy FinanceAi](#Configuração-do-Projeto-Easy-FinanceAi)
    1. [Pré-requisitos](#Pré-requisitos)
    2. [Clonar o Repositório](#Clonar-o-Repositório)
-   3. [Instalar Dependências](#Instalar-Dependências)
-   4. [Configurar Variáveis de Ambiente](#Configurar-Variáveis-de-Ambiente)
-   5. [Configurar o Banco de Dados](#Configurar-o-Banco-de-Dados)
+  1. [Instalar Dependências](#Instalar-Dependências)
+   3. [Configurar Variáveis de Ambiente](#Configurar-Variáveis-de-Ambiente)
+   4. [Configurar o Banco de Dados](#Configurar-o-Banco-de-Dados)
       1. [Usar Banco de Dados Remoto](#Usar-Banco-de-Dados-Remoto)
       2. [Usar Docker para Banco de Dados Local](#Usar-Docker-para-Banco-de-Dados-Local)
-   6. [Configurar o Prisma](#Configurar-o-Prisma)
-   7. [Rodar o Servidor de Desenvolvimento](#Rodar-o-Servidor-de-Desenvolvimento)
-   8. [Configuração de Webhooks](#Configuração-de-Webhooks-Opicional)
+   5. [Configurar o Prisma](#Configurar-o-Prisma)
+   6. [Rodar o Servidor de Desenvolvimento](#Rodar-o-Servidor-de-Desenvolvimento)
+      1. [Configuração de Webhooks](#Configuração-de-Webhooks-Opicional)
 
 ## **Introdução**
 
@@ -122,8 +122,6 @@ Certifique-se de ter os seguintes itens instalados na sua máquina:
 - [NPM](https://www.npmjs.com/) ou [Yarn](https://yarnpkg.com/)
 - [PostgreSQL](https://www.postgresql.org/) (Para utilizar um serviço de hospedagem de banco de dados remoto)
 - [Docker](https://www.docker.com/) (Para configurar o banco de dados localmente)
-
----
 
 ### **Passo 1: Clonar o Repositório**
 
