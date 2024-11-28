@@ -10,16 +10,15 @@
 4. [Tecnologias de Suporte](#Tecnologias-de-Suporte)
 5. [Configuração do Projeto Easy FinanceAi](#Configuração-do-Projeto-Easy-FinanceAi)
    1. [Pré-requisitos](#Pré-requisitos)
-   2. [Passos de Configuração](#Passos-de-Configuração)
-      1. [Clonar o Repositório](#Clonar-o-Repositório)
-      2. [Instalar Dependências](#Instalar-Dependências)
-      3. [Configurar Variáveis de Ambiente](#Configurar-Variáveis-de-Ambiente)
-      4. [Configurar o Banco de Dados](#Configurar-o-Banco-de-Dados)
-         1. [Usar Banco de Dados Remoto](#Usar-Banco-de-Dados-Remoto)
-         2. [Usar Docker para Banco de Dados Local](#Usar-Docker-para-Banco-de-Dados-Local)
-      5. [Configurar o Prisma](#Configurar-o-Prisma)
-      6. [Rodar o Servidor de Desenvolvimento](#Rodar-o-Servidor-de-Desenvolvimento)
-      7. [Configuração de Webhooks](#Configuração-de-Webhooks-Opicional)
+   2. [Clonar o Repositório](#Clonar-o-Repositório)
+   3. [Instalar Dependências](#Instalar-Dependências)
+   4. [Configurar Variáveis de Ambiente](#Configurar-Variáveis-de-Ambiente)
+   5. [Configurar o Banco de Dados](#Configurar-o-Banco-de-Dados)
+      1. [Usar Banco de Dados Remoto](#Usar-Banco-de-Dados-Remoto)
+      2. [Usar Docker para Banco de Dados Local](#Usar-Docker-para-Banco-de-Dados-Local)
+   6. [Configurar o Prisma](#Configurar-o-Prisma)
+   7. [Rodar o Servidor de Desenvolvimento](#Rodar-o-Servidor-de-Desenvolvimento)
+   8. [Configuração de Webhooks](#Configuração-de-Webhooks-Opicional)
 
 ## **Introdução**
 
@@ -115,16 +114,14 @@ Novidades em desenvolvimento para melhorar a experiência:
 
 Esta seção explica como configurar e executar o projeto localmente. Siga os passos abaixo para garantir o funcionamento correto da aplicação.
 
----
-
 ### **Pré-requisitos**
 
 Certifique-se de ter os seguintes itens instalados na sua máquina:
 
 - [Node.js](https://nodejs.org/) (v18+)
 - [NPM](https://www.npmjs.com/) ou [Yarn](https://yarnpkg.com/)
-- [PostgreSQL](https://www.postgresql.org/) (opcional se utilizar um serviço de hospedagem de banco de dados remoto)
-- [Docker](https://www.docker.com/) (opcional para configurar o banco de dados localmente)
+- [PostgreSQL](https://www.postgresql.org/) (Para utilizar um serviço de hospedagem de banco de dados remoto)
+- [Docker](https://www.docker.com/) (Para configurar o banco de dados localmente)
 
 ---
 
@@ -629,30 +626,22 @@ Abra o navegador e acesse o projeto em [http://localhost:3000](http://localhost:
 
 ---
 
-### **Passo 7: Configuração de Webhooks (Opcional)**
+### **Passo 7: Configuração de Webhooks**
+Para integrar os webhooks do **Stripe**, você pode usar o **Stripe CLI** ou configurar diretamente na sua aplicação. Abaixo está um guia básico para configurar os webhooks.
 
-Caso esteja usando o **Stripe** em ambiente local, será necessário configurar o Stripe CLI para testar os webhooks. Siga as instruções abaixo:
+1. **Configuração Básica com Stripe CLI (Local)**:
+   - Baixe e instale o [Stripe CLI](https://docs.stripe.com/stripe-cli).
+   - Faça login no Stripe CLI:
+     ```bash
+     stripe login
+     ```
+   - Para testar os webhooks localmente, use o comando abaixo:
+     ```bash
+     stripe listen --forward-to localhost:3000/api/webhooks/stripe
+     ```
+   Isso redirecionará os eventos de webhook para sua aplicação local.
 
-1. Baixe e instale o [Stripe CLI](https://docs.stripe.com/stripe-cli) compatível com seu sistema operacional.
+2. **Configuração de Webhooks (Remota)**:
+   Para usar webhooks no ambiente de produção ou remoto, basta configurar a URL do webhook no painel do Stripe e no backend da sua aplicação para receber os eventos.
 
-2. Após a instalação, faça login no Stripe CLI utilizando sua conta Stripe:
-
-   ```bash
-   stripe login
-   ```
-
-3. Será necessário criar um arquivo de configuração `.stripe` para armazenar as credenciais do Stripe CLI. Esse arquivo é essencial para rodar os webhooks localmente.
-
-   - Faça o download do exemplo de arquivo `.stripe` diretamente no link:  
-     [Baixar .stripe](https://stripe.com/docs/stripe-cli/configuration)
-
-   - Coloque o arquivo `.stripe` na raiz do seu projeto ou na pasta padrão indicada pela documentação do Stripe CLI.
-
-4. Teste os webhooks rodando o seguinte comando:
-   ```bash
-   stripe listen --forward-to localhost:3000/api/webhooks/stripe
-   ```
-
-Agora, o Stripe CLI redirecionará os eventos do webhook para sua aplicação local, permitindo que você teste o processamento de pagamentos de maneira integrada.
-
-Se tiver dúvidas adicionais, consulte a [documentação oficial do Stripe CLI](https://stripe.com/docs/stripe-cli).
+Para mais informações detalhadas sobre como configurar webhooks no Stripe, consulte a [documentação oficial do Stripe CLI](https://stripe.com/docs/stripe-cli) e [webhooks do Stripe](https://stripe.com/docs/webhooks).
