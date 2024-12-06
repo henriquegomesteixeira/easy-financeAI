@@ -405,6 +405,7 @@ Novidades em desenvolvimento para melhorar a experiência:
 
 ### **Funcionalidade**
 
+- [**Docker**](https://www.docker.com/): Usado no ambiente de desenvolvimento para configurar um banco de dados PostgreSQL local de forma rápida e consistente.
 - [**Stripe**](https://stripe.com/): Processamento de pagamentos com cartão de crédito.
 - [**React Hook Form**](https://react-hook-form.com/): Biblioteca de formulários com validação eficiente.
 - [**Recharts**](https://recharts.org/): Biblioteca para gráficos interativos.
